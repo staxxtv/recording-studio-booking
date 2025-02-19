@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import ClientInfoForm from "@/components/booking/ClientInfoForm";
 import ServiceSelection from "@/components/booking/ServiceSelection";
 import StaffSelection from "@/components/booking/StaffSelection";
+import DateTimeSelection from "@/components/booking/DateTimeSelection";
 
 const Booking = () => {
   const [step, setStep] = useState(1);
@@ -19,6 +20,8 @@ const Booking = () => {
     service: "",
     hours: 1,
     staff: "",
+    date: undefined as Date | undefined,
+    time: "",
   });
 
   const updateFormData = (field: string, value: any) => {
@@ -28,7 +31,7 @@ const Booking = () => {
     }));
   };
 
-  const nextStep = () => setStep((prev) => Math.min(prev + 1, 3));
+  const nextStep = () => setStep((prev) => Math.min(prev + 1, 4));
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
 
   return (
@@ -39,7 +42,7 @@ const Booking = () => {
         <div className="max-w-2xl mx-auto">
           <div className="mb-8">
             <div className="flex justify-between items-center mb-4">
-              {[1, 2, 3].map((stepNumber) => (
+              {[1, 2, 3, 4].map((stepNumber) => (
                 <div
                   key={stepNumber}
                   className={`flex-1 h-2 rounded-full mx-2 ${
@@ -49,7 +52,7 @@ const Booking = () => {
               ))}
             </div>
             <p className="text-center text-white">
-              Step {step} of 3
+              Step {step} of 4
             </p>
           </div>
 
@@ -87,6 +90,14 @@ const Booking = () => {
                     updateStaff={(value) => updateFormData("staff", value)}
                   />
                 )}
+                {step === 4 && (
+                  <DateTimeSelection
+                    selectedDate={formData.date}
+                    selectedTime={formData.time}
+                    updateDate={(value) => updateFormData("date", value)}
+                    updateTime={(value) => updateFormData("time", value)}
+                  />
+                )}
               </motion.div>
             </AnimatePresence>
 
@@ -105,7 +116,7 @@ const Booking = () => {
                 onClick={nextStep}
                 className="bg-primary text-white hover:bg-primary/90"
               >
-                {step === 3 ? "Submit" : "Next"} <ChevronRight className="ml-2 h-4 w-4" />
+                {step === 4 ? "Submit" : "Next"} <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </motion.div>
