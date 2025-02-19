@@ -17,22 +17,22 @@ const staff = [
   {
     id: "playa",
     name: "Playa Pizzle",
-    specialty: "Hip Hop & R&B Production",
+    specialty: "Sound Engineering, Beat Production, & Ghost Writing",
   },
   {
     id: "staxx",
     name: "Staxx Tv",
-    specialty: "Sound Engineering & Mixing",
+    specialty: "Sound Engineering & Beat Production",
   },
   {
     id: "dee",
-    name: "Dee Raw",
-    specialty: "Vocal Production",
+    name: "Dee Raw Made It",
+    specialty: "Beat Production",
   },
   {
     id: "kromatic",
     name: "Kromatic",
-    specialty: "Beat Production & Mastering",
+    specialty: "Beat Production",
   },
 ];
 
