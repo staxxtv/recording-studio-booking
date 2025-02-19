@@ -32,7 +32,7 @@ const MainNav = () => {
             <Button variant="ghost" className="text-white hover:text-primary">
               Contact
             </Button>
-            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
               Login
             </Button>
             <Button className="bg-primary text-white hover:bg-primary/90">
@@ -69,7 +69,7 @@ const MainNav = () => {
               <Button variant="ghost" className="w-full text-white hover:text-primary justify-start">
                 Contact
               </Button>
-              <Button variant="outline" className="w-full text-white border-white hover:bg-white hover:text-black">
+              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
                 Login
               </Button>
               <Button className="w-full bg-primary text-white hover:bg-primary/90">
