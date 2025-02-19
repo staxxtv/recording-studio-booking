@@ -28,12 +28,12 @@ const services = [
     id: "mixing",
     name: "Mix & Master",
     basePrice: 50,
-    description: "Must provide full session for mixing and mastering",
+    description: "Must provide full session track-outs (stems) for mixing and mastering",
   },
   {
     id: "beats",
     name: "Beat Listening",
-    basePrice: 100,
+    basePrice: 150,
     description: "Listen to and select from our premium beat collection",
   },
 ];
