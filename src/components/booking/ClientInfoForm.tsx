@@ -31,13 +31,13 @@ const ClientInfoForm = ({ data, updateData }: Props) => {
       
       <div className="space-y-4">
         <div>
-          <Label htmlFor="name" className="text-white">Full Name</Label>
+          <Label htmlFor="name" className="text-white">Name</Label>
           <Input
             id="name"
             value={data.name}
             onChange={handleChange("name")}
             className="bg-white/10 border-white/20 text-white"
-            placeholder="Enter your full name"
+            placeholder="Enter your full name or artist name"
           />
         </div>
 
