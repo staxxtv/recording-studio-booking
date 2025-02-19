@@ -28,7 +28,6 @@ const Index = () => {
       <MainNav />
       
       <main className="pt-28 px-4 sm:px-6 lg:px-8">
-        {/* Hero Section */}
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -50,6 +49,7 @@ const Index = () => {
               <Button
                 size="lg"
                 className="bg-primary text-white hover:bg-primary/90 text-lg px-8 py-6 rounded-full"
+                onClick={() => window.location.href = '/booking'}
               >
                 Book Now <ChevronRight className="ml-2" />
               </Button>
