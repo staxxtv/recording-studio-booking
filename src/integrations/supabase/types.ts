@@ -9,16 +9,122 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          client_id: string
+          created_at: string
+          date: string
+          hours: number
+          id: string
+          service: string
+          staff_id: string | null
+          status: string
+          time: string
+          updated_at: string
+        }
+        Insert: {
+          client_id: string
+          created_at?: string
+          date: string
+          hours: number
+          id?: string
+          service: string
+          staff_id?: string | null
+          status?: string
+          time: string
+          updated_at?: string
+        }
+        Update: {
+          client_id?: string
+          created_at?: string
+          date?: string
+          hours?: number
+          id?: string
+          service?: string
+          staff_id?: string | null
+          status?: string
+          time?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "bookings_staff_id_fkey"
+            columns: ["staff_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      invitation_codes: {
+        Row: {
+          code: string
+          created_at: string
+          is_used: boolean | null
+          used_at: string | null
+          used_by: string | null
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          is_used?: boolean | null
+          used_at?: string | null
+          used_by?: string | null
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          is_used?: boolean | null
+          used_at?: string | null
+          used_by?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string
+          username: string
+        }
+        Insert: {
+          created_at?: string
+          id: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          username: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+          username?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      validate_invitation_code: {
+        Args: {
+          input_code: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      user_role: "client" | "staff"
     }
     CompositeTypes: {
       [_ in never]: never

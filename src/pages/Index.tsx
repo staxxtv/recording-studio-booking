@@ -41,19 +41,33 @@ const Index = () => {
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Professional recording studio equipped with cutting-edge technology and expert engineers to bring your vision to life.
             </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block"
-            >
-              <Button
-                size="lg"
-                className="bg-primary text-white hover:bg-primary/90 text-lg px-8 py-6 rounded-full"
-                onClick={() => window.location.href = '/booking'}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Book Now <ChevronRight className="ml-2" />
-              </Button>
-            </motion.div>
+                <Button
+                  size="lg"
+                  className="bg-primary text-white hover:bg-primary/90 text-lg px-8 py-6 rounded-full"
+                  onClick={() => window.location.href = '/booking'}
+                >
+                  Book Now <ChevronRight className="ml-2" />
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary hover:text-white text-lg px-8 py-6 rounded-full"
+                  onClick={() => window.location.href = '/auth'}
+                >
+                  Sign In
+                </Button>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Features Section */}
