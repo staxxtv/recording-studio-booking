@@ -46,22 +46,7 @@ export type Database = {
           time?: string
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "bookings_client_id_fkey"
-            columns: ["client_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "bookings_staff_id_fkey"
-            columns: ["staff_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       invitation_codes: {
         Row: {
