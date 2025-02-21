@@ -16,7 +16,6 @@ const Auth = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    username: "",
     invitation_code: "",
   });
 
@@ -31,7 +30,6 @@ const Auth = () => {
           password: formData.password,
           options: {
             data: {
-              username: formData.username,
               invitation_code: formData.invitation_code || null,
             },
           },
@@ -85,22 +83,6 @@ const Auth = () => {
           </h1>
           
           <form onSubmit={handleSubmit} className="space-y-4">
-            {isSignUp && (
-              <div>
-                <Label htmlFor="username" className="text-white">Username</Label>
-                <Input
-                  id="username"
-                  name="username"
-                  type="text"
-                  required
-                  value={formData.username}
-                  onChange={handleChange}
-                  className="bg-white/10 border-white/20 text-white"
-                  placeholder="Enter your username"
-                />
-              </div>
-            )}
-
             <div>
               <Label htmlFor="email" className="text-white">Email</Label>
               <Input
