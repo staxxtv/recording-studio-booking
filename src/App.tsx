@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Booking from "./pages/Booking";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import PrivateRoute from "./components/PrivateRoute";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +23,14 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route 
+            path="/dashboard" 
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            } 
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

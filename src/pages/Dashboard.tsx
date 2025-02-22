@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -25,9 +24,31 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '@/components/ui/use-toast';
+import { supabase } from '@/lib/supabase';
 
 const Dashboard = () => {
-  const [userRole] = useState<"client" | "staff">("client"); // This will be replaced with auth context
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  const [userRole] = useState<"client" | "staff">("staff");
+
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      toast({
+        title: "Logged out",
+        description: "You have been successfully logged out.",
+      });
+      navigate('/');
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to log out.",
+      });
+    }
+  };
 
   const upcomingBookings = [
     {
@@ -65,19 +86,29 @@ const Dashboard = () => {
     },
   ];
 
+  // Add the logout button to the existing JSX
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-purple-900 to-black">
       <MainNav />
       
       <main className="pt-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white">
-              Welcome back, {userRole === "staff" ? "Producer" : "Artist"}
-            </h1>
-            <p className="text-gray-300 mt-2">
-              Manage your {userRole === "staff" ? "sessions" : "bookings"} and track your progress
-            </p>
+          <div className="mb-8 flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-white">
+                Welcome back, {userRole === "staff" ? "Producer" : "Artist"}
+              </h1>
+              <p className="text-gray-300 mt-2">
+                Manage your {userRole === "staff" ? "sessions" : "bookings"} and track your progress
+              </p>
+            </div>
+            <Button 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-white"
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
