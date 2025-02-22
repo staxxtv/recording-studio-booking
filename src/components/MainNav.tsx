@@ -32,11 +32,12 @@ const MainNav = () => {
             <Button variant="ghost" className="text-white hover:text-primary">
               Contact
             </Button>
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-              Login
-            </Button>
-            <Button className="bg-primary text-white hover:bg-primary/90">
-              Sign Up
+            <Button 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-white"
+              onClick={() => window.location.href = '/login'}
+            >
+              Staff Login
             </Button>
           </div>
 
@@ -69,11 +70,12 @@ const MainNav = () => {
               <Button variant="ghost" className="w-full text-white hover:text-primary justify-start">
                 Contact
               </Button>
-              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                Login
-              </Button>
-              <Button className="w-full bg-primary text-white hover:bg-primary/90">
-                Sign Up
+              <Button 
+                variant="outline" 
+                className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                onClick={() => window.location.href = '/login'}
+              >
+                Staff Login
               </Button>
             </div>
           </motion.div>
